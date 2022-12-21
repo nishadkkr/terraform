@@ -7,11 +7,18 @@ resource "aws_instance" "public_ec2" {
   subnet_id                   = aws_subnet.mypublicsubnet.id
   associate_public_ip_address = true
 
+  provisioner "remote-exec" {
+    inline = [
+      "touch hello.txt",
+      "echo helloword!! >> hello.txt",
+    ]
+  }
+
   connection {
     type        = "ssh"
     host        = self.public_ip
     user        = "ubuntu"
-    private_key = ""
+    private_key = "/home/ntech/keys/aws_key"
     timeout     = "4m"
   }
   tags = {
