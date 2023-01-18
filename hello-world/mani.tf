@@ -11,5 +11,5 @@ output "hello_world" {
 }
 
 output "Important_Message" {
-    value = "You can see this hello-world script on my github repo and also able to clone or fork it.Thank You !"
+  value = "You can see this hello-world script on my github repo and also able to clone or fork it.Thank You !"
 }
